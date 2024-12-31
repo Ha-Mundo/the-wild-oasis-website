@@ -1,7 +1,8 @@
-import { Suspense } from "react";
 import CabinList from "@/app/_components/CabinList";
-import Spinner from "@/app/_components/Spinner";
 import Filter from "@/app/_components/Filter";
+import ReservationReminder from "@/app/_components/ReservationReminder";
+import Spinner from "@/app/_components/Spinner";
+import { Suspense } from "react";
 
 export const revalidate = 3600; // -> this add ISR - Incremental Static Regeneration every hour. It works only for static generated pages
 //export const revalidate = 15
@@ -33,6 +34,7 @@ export default function Page({ searchParams }) {
       {/* we add an unique key props to display the Suspense fallback spinner while loading the CabinList*/}
       <Suspense fallback={<Spinner />} key={filter}>
         <CabinList filter={filter} />
+        <ReservationReminder />
       </Suspense>
     </div>
   );
