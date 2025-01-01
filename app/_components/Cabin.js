@@ -1,6 +1,6 @@
-import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
-import TextExpander from "./TextExpander";
 import Image from "next/image";
+import TextExpander from "@/app/_components/TextExpander";
+import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 
 function Cabin({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
