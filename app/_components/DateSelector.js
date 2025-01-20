@@ -11,6 +11,8 @@ import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
+  if (!range || !range.from || !range.to) return false;
+
   return (
     range.from &&
     range.to &&
@@ -26,7 +28,10 @@ function DateSelector({ settings, cabin, bookedDates }) {
   const displayRange = isAlreadyBooked(range, bookedDates) ? {} : range; // this logic avoid to book in a range where the dates are already booked from a previous reservation
 
   const { regularPrice, discount } = cabin;
-  const numNights = differenceInDays(displayRange.to, displayRange.from);
+  const numNights = differenceInDays(
+    displayRange?.to || "",
+    displayRange?.from || ""
+  );
   const cabinPrice = numNights * (regularPrice - discount);
 
   // SETTINGS
