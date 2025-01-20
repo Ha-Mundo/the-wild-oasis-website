@@ -18,7 +18,7 @@ export async function updateGuest(formData) {
 
   const updateData = { nationality, countryFlag, nationalID };
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from("guests")
     .update(updateData)
     .eq("id", session.user.guestId);
@@ -77,6 +77,9 @@ export async function deleteBooking(bookingId) {
 
 export async function updateBooking(formData) {
   const bookingId = Number(formData.get("bookingId"));
+  const numGuests = formData.get("numGuests"); // <- string type
+
+  if (!numGuests) throw new Error("numGuests are required");
 
   // 1) Authentication
   const session = await auth();
@@ -91,7 +94,7 @@ export async function updateBooking(formData) {
 
   // 3) Building update data
   const updateData = {
-    numGuests: Number(formData.get("numGuests")),
+    numGuests: Number(numGuests),
     observations: formData.get("observations").slice(0, 1000),
   };
 
