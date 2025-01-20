@@ -9,8 +9,8 @@ function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
   const { maxCapacity, regularPrice, discount, id } = cabin;
 
-  const startDate = range.from;
-  const endDate = range.to;
+  const startDate = range?.from || "";
+  const endDate = range?.to || "";
 
   const numNights = differenceInDays(endDate, startDate);
   const cabinPrice = numNights * (regularPrice - discount);
@@ -23,6 +23,7 @@ function ReservationForm({ cabin, user }) {
     cabinId: id,
   };
 
+  // storing bookingData and bind it into createReservation action instead of making hidden inputs
   const createBookingWithData = createBooking.bind(null, bookingData);
 
   return (
