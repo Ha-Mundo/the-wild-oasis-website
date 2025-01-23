@@ -2,7 +2,7 @@
 
 Introducing Wild Oasis Reservations: A modern, user-friendly hotel booking website that enhances guest experience with seamless online reservations. Guests can explore detailed information about the cabins, make reservations, and manage their bookings. The platform also supports Google account login for easy access to personal information and booking management.
 
-Crafted with cutting-edge technologies including Next.js 14, React Server Components (RSC), and modern React hooks like useFormStatus and useOptimistic. Our platform leverages Date-fns for date management, Supabase for a robust database solution, and the Context API for efficient global state management. We utilize revalidatePath for managing Next.js caches, and Auth.js for secure authentication.
+Crafted with cutting-edge technologies including Next.js 14, React Server Components (RSC), and modern React hooks like useFormStatus and useOptimistic. The platform leverages Date-fns for date management, Supabase for a robust database solution, and the Context API for efficient global state management. We utilize revalidatePath for managing Next.js caches, and Auth.js for secure authentication.
 
 #### Key Features:
 
